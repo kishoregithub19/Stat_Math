@@ -1,0 +1,52 @@
+---
+title: "R programming - An Introduction to statistical Analysis"
+author: "Dr. Kishore Kumar P K"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+Statistical Analysis using R: Descriptive statistics - Measures of central tendency - Measures of dispersion. Inferential Statistics - Test of Hypothesis, ANOVA.
+
+$$
+\text{Finding the mean,median, mode, variance, standard deviation, coefficient of variation}
+$$
+
+```{r}
+
+cars
+a = mean(cars$speed)
+b = median(cars$speed)
+c = var(cars$speed)
+d = sd(cars$speed)
+e = d/a * 100
+
+# Create the  mode function
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+f = getmode(cars$speed)
+cat(a, "is the mean of speed in cars\n")
+cat(b," is the median of speed in cars\n")
+cat(f, "is the mode of speed in cars\n")
+cat(c,"is the variance of speed in cars\n")
+cat(d,"is the standard deviation of speed in cars\n")
+cat(e, "% is the coefficient of variation of speed in cars")
+
+
+
+```
+
+```{r}
+faithful
+barplot(faithful$waiting, col="lightyellow")
+boxplot(faithful$waiting, col="lightgreen")
+plot(faithful$waiting, col="blue")
+quantile(faithful$waiting)
+```
